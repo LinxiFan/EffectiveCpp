@@ -50,19 +50,19 @@ string type_str() {
 
 /**
  * Work with raw type:
- * display_type<my_type>();
+ * print_type<my_type>();
  */
 template<typename T>
-void display_type() {
+void print_type() {
     cout << "type= " << type_str<T>() << endl;
 }
 
 /**
  * Work with values:
- * display_type(my_object);
+ * print_type(my_object);
  */
 template<typename T>
-void display_type(const T& param) {
+void print_type(const T& param) {
     cout << "type= " << type_str<T>() << endl;
 }
 

@@ -92,7 +92,7 @@ int main() {
     cout << make_object_with_brace<vector<int>>() << endl;
     cout << make_object_with_paren<vector<int>>(5, -7) << endl;
     cout << make_object_with_paren<vector<int>>() << endl;
-    display_type(nullptr);
+    print_type(nullptr);
 
     MyType<int> vec{1, 2, 3};
     typename MyType2<int>::type vec2{11, 22, 33};  // derived type MUST have `typename`

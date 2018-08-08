@@ -13,6 +13,6 @@ struct Dog  { std::string name; };
 
 int main() {
     auto animals = hana::make_tuple(Fish{"Nemo"}, Cat{"Garfield"}, Dog{"Snoopy"});
-    display_type(animals);
+    print_type(animals);
 }
 
