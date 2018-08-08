@@ -25,7 +25,6 @@ function(link_boost target)
     target_link_libraries(${target} ${Boost_LIBRARIES})
 endfunction()
 
-
 foreach(FILE_NAME
         cpp17_fold boost_hana
         ch1_deducing_types ch2_auto ch3_moving_to_modern
