@@ -26,7 +26,7 @@ function(link_boost target)
 endfunction()
 
 foreach(FILE_NAME
-        cpp17_fold boost_hana
+        cpp17_fold boost_hana boost_hana_switch
         ch1_deducing_types ch2_auto ch3_moving_to_modern
         ch3_typetraits ch3_enum ch3_class_qualifier ch3_constexpr
         ch4_smartpointers)

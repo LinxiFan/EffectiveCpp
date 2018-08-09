@@ -100,11 +100,11 @@ int main() {
     compile_print(pref.getY());
 
     cout << "Variadic hacking with if constexpr" << endl;
-    print_type(variadic_get<0>(nullptr, "const char", 35, "my string"s, 4.556));
-    print_type(variadic_get<1>(nullptr, "const char", 35, "my string"s, 4.556));
-    print_type(variadic_get<2>(nullptr, "const char", 35, "my string"s, 4.556));
-    print_type(variadic_get<3>(nullptr, "const char", 35, "my string"s, 4.556));
-    print_type(variadic_get<4>(nullptr, "const char", 35, "my string"s, 4.556));
+    ptype(variadic_get<0>(nullptr, "const char", 35, "my string"s, 4.556));
+    ptype(variadic_get<1>(nullptr, "const char", 35, "my string"s, 4.556));
+    ptype(variadic_get<2>(nullptr, "const char", 35, "my string"s, 4.556));
+    ptype(variadic_get<3>(nullptr, "const char", 35, "my string"s, 4.556));
+    ptype(variadic_get<4>(nullptr, "const char", 35, "my string"s, 4.556));
 
     return 0;
 }

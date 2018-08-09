@@ -49,7 +49,7 @@ int main() {
     }
     cout << "C++17 structure binding" << endl;
     for (const auto& [key, value]: mymap) {
-//        print_type(key);
+//        ptype(key);
         cout << key << "->" << value << endl;
     }
 
@@ -57,7 +57,7 @@ int main() {
     vector<bool> mybools {true, true, false, false, true};
     auto wrong_bool = mybools[3]; // proxy object
     auto right_bool = static_cast<bool>(mybools[3]);
-    print_type(right_bool);
+    ptype(right_bool);
 
     return 0;
 }
