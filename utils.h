@@ -14,6 +14,7 @@
 
 using namespace std;
 
+/***************** SFINAE in C++14 *****************/
 // https://stackoverflow.com/questions/25654632/how-to-check-at-compile-time-if-a-function-is-called/25654759#25654759
 // static_assert(false, ...) will result in compile error, so we fake a false type
 // static_assert(dependent_false<T>::value, "error message");

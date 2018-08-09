@@ -85,8 +85,12 @@ int main() {
     cout << apple_ptr->get() << endl;
     auto banana_ptr = make_fruit(3.1415, "hello", 18.33);
     cout << banana_ptr->get() << endl;
-    auto cherry_ptr = make_fruit("yoo", "hello");
-    cout << cherry_ptr->get() << endl;
+    // unique_ptr can cast to shared_ptr
+    shared_ptr<Marker> cherry_ptr = make_fruit("yoo", "hello");
+    cout << "should be unique: " << cherry_ptr.unique() << endl;
+    auto cherry_copy1 = cherry_ptr;
+    auto cherry_copy2 = cherry_ptr;
+    cout << cherry_ptr->get() << " use_count= " << cherry_ptr.use_count() << endl;
 
     return 0;
 }
