@@ -47,8 +47,8 @@ private:
     string id;
 };
 
-auto del_marker = [](Marker* mp) {
-    cout << "unique_ptr custom deleter called" << endl;
+auto custom_del = [](Marker* mp) {
+    cout << "smart pointer custom deleter called" << endl;
     delete mp;
 };
 
@@ -57,7 +57,7 @@ auto del_marker = [](Marker* mp) {
  */
 template<typename ArgT0, typename... ArgT>
 auto make_fruit(ArgT0 arg0, ArgT... args) {
-    unique_ptr<Marker, decltype(del_marker)> ptr(nullptr, del_marker);
+    unique_ptr<Marker, decltype(custom_del)> ptr(nullptr, custom_del);
     // is_same_v is equivalent to std::is_save<T1, T2>::value
     if constexpr (std::is_same_v<int, ArgT0>) {
         ptr.reset(new Apple(arg0, std::forward<ArgT>(args) ...));
@@ -78,7 +78,7 @@ auto make_fruit(ArgT0 arg0, ArgT... args) {
 int main() {
     Marker::print_enabled = true;
 
-    unique_ptr<Marker, decltype(del_marker)> ptr(nullptr, del_marker);
+    unique_ptr<Marker, decltype(custom_del)> ptr(nullptr, custom_del);
     ptr.reset(new Marker("hello"));  // now unique_ptr owns the object
 
     auto apple_ptr = make_fruit(20, "hello", "a1", 777);
@@ -91,6 +91,9 @@ int main() {
     auto cherry_copy1 = cherry_ptr;
     auto cherry_copy2 = cherry_ptr;
     cout << cherry_ptr->get() << " use_count= " << cherry_ptr.use_count() << endl;
+
+    // shared_ptr custom deleter is not part of the type
+    shared_ptr<Marker> banana_ptr2 {new Banana(1.2, "b2", -0.5), custom_del};
 
     return 0;
 }
